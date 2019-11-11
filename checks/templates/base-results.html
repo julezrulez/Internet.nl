@@ -65,17 +65,21 @@
             <a href="{{permalink}}" class="permalink">{% include "string.html" with name="results permalink" %}</a>
             <br>
             <span id="retest-time" class="hidethis" aria-hidden="true">{{retest_time}}</span>
-                  <span class="retest-text reruntest"
+                  <span 
                     {% if retest_time < 1 %}
-                      class="hidethis" aria-hidden="true"
-                    {%endif%}>
+                      class="retest-text reruntest hidethis" aria-hidden="true"
+                    {% else %}
+                      class="retest-text reruntest"
+                    {% endif %}>
                       {% include "string.html" with name="results retest-time" %}
                       <span class="retest-time"> {{retest_time}}</span>
                   </span>
-                  <a href="{{retest_link}}" rel="nofollow" class="retest-link reruntest"
+                  <a href="{{retest_link}}" rel="nofollow" 
                     {% if retest_time > 0 %}
-                      class="hidethis" aria-hidden="true"
-                    {%endif%}>
+                      class="retest-link reruntest hidethis" aria-hidden="true"
+                    {% else %}
+                      class="retest-link reruntest"
+                    {% endif %}>
                       {% include "string.html" with name="results rerun-test" %}
                   </a>
           </div>
